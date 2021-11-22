@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+
+    <h1>Studio de Radio Londres</h1>
+    <p>La radio qui parlent aux Français.</p>
+    
+
+    <form action="../contact" method="POST">
+      {% csrf_token %}  <!-- intègre template csrf_token pour protéger formulaire des attaques -->
+      <label>Résistant : </label>
+      <input type="text" id="resistant" name="resistant" size="50" />
+      <br /><br />
+      <label>Message : </label>
+      <input type="text" id="message" name="message" size="255" />
+      <input type="submit" value="Diffuser un message" />
+    </form>
+
+
+
+
+</body>
+</html>
