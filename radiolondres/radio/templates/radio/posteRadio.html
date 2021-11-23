@@ -1,21 +1,37 @@
+{% extends 'radio/template.html' %}
 
 
 
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-</head>
-<body>
+{% block content %} 
+<h1>Poste de radio</h1>
+
+{% comment %} si cette page reçu un réquet et dans le requet ou bien URL il y a un numero apres le poste-radio il afficher ce partie la sinon il affiche
+ce que est dans le else
+{% endcomment %}
+{% if pseudo %}
+
+  
+  <p>La radio que {{pseudo}} écoute à la maison.</p>
+
+  
+  {% comment %} cette boucle for affiche tous les messages à partir de base de donées {% endcomment %}
+  {% for message in messages %}
+    {{message.message_text}}
+  {% endfor %}
+
+{% else %}
+
+<p>j'ai utilisé juste un boucle for pour afficher le numero de poste 
+  le plus pratique pour moi est d'utiliser le base de donnée ...</p>
+
+  <ul>
+    {% for i in '123456789'%}
+    <li><a href="/poste-radio/{{i}}">Poste RAdio n° {{i}}</a></li>
+    {% endfor %}
+  </ul>
+
+{% endif %}
 
 
-    <h1>Poste de radio</h1>
-    <p>La radio que {{pseudo}} écoute à la maison.</p>
-    
 
-
-</body>
-</html>
+{% endblock %}

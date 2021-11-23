@@ -1,31 +1,33 @@
-
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-</head>
-<body>
+{% extends 'radio/template.html' %}
 
 
-    <h1>Studio de Radio Londres</h1>
-    <p>La radio qui parlent aux Français.</p>
-    
+{% block content %} 
 
-    <form action="../contact" method="POST">
-      {% csrf_token %}  <!-- intègre template csrf_token pour protéger formulaire des attaques -->
-      <label>Résistant : </label>
-      <input type="text" id="resistant" name="resistant" size="50" />
-      <br /><br />
-      <label>Message : </label>
-      <input type="text" id="message" name="message" size="255" />
-      <input type="submit" value="Diffuser un message" />
-    </form>
+<div class="container">
+
+<h1>Studio de Radio Londres</h1>
+<p>La radio qui parlent aux Français.</p>
+
+  <form action="../diffuser_message" method="POST">
+    {% csrf_token %} 
+    <label>Résistant : </label>
+
+    <select name="resistant" id="resistant" class="form-control">
+    {% for resistant in resistant %}
+      <option value='{{resistant.pseudo}}'>{{ resistant.pseudo }}</option>
+    {% endfor %}
+    </select> 
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Message</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message" id="message"></textarea>
+    </div>
+
+    <input type="submit" value="Diffuser un message" />
+
+  </form>
+</div>
+
+{% endblock %}
 
 
-
-
-</body>
-</html>
+<!--<input type="text" id="resistant" name="resistant" size="50"/>-->
