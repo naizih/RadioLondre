@@ -7,18 +7,16 @@ from .forms import diffuser_message
 from django.utils.timezone import datetime
 
 
-
+ 
 def index(request):
 	template = loader.get_template('radio/index.html')
 	value = "Master1 ISC TR - ETRS701_TRI Conception et programmation orientée objet - Christophe Courtin"
 	context = {'message': value}
 	return HttpResponse(template.render(context, request))
 
-	#return HttpResponse("Master1 ISC TR - ETRS701_TRI Conception et programmation orientée objet - Christophe Courtin")
-	
 
 
-# vue studio de radio
+# radio studio
 def studioRadio(request):
 	template = loader.get_template('radio/studioRadio.html')
 	resistant = Resistant.objects.all()
@@ -26,7 +24,7 @@ def studioRadio(request):
 	return HttpResponse(template.render(context, request))
 
 
-# vue poste de radio
+# controleur de poste radio
 def posteRadio(request, pseudo):
 	template = loader.get_template('radio/posteRadio.html')
 	messages = Message.objects.all()

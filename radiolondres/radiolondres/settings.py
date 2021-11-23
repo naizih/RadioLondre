@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-j851fa#pco0z+y1-^l4@7m#-3)=s-rzolk3wq2ni^5ujbk7xd!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.56.106"]
+ALLOWED_HOSTS = ["192.168.56.106", "127.0.0.1"]
+
 
 
 # Application definition
@@ -83,18 +84,6 @@ DATABASES = {
 }
 
 
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_db',
-        'USER': 'root',
-        'PASSWORD': 'Khan@123',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
